@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exo destructuration</title>
+</head>
+<body>
+    <!-- créer un objet data :
+    {
+        "id": 1,
+        "title": "iPhone9",
+        "description": "lorem",
+        commentaires : [
+        { id : 1 , email : "toto@yahoo.fr" , message : "super produit"},
+        { id : 2 , email : "toto2@yahoo.fr" , message : "cool"},
+        { id : 3 , email : "toto3@yahoo.fr" , message : "produit à éviter"},
+        ] 
+    }
+    en utilisant la destructuration écrire dans le navigateur le html suivant
+    <h1>iPhone 9 </h1>
+    <p>lorem</p>
+    <ul>
+           <li> toto@yahoo.fr - super produit </li>
+           <li> toto2@yahoo.fr - cool </li>
+           <li> toto3@yahoo.fr - produit à éviter </li>
+    </ul>
+    -->
+    <div class="reponse1"></div>
+    <div class="reponse2"></div>
+    <div class="reponse3"></div>
+    <script>
+        const data = {
+            "id": 1,
+            "title": "iPhone9",
+            "description": "lorem",
+            commentaires : [
+            { id : 1 , email : "toto@yahoo.fr" , message : "super produit"},
+            { id : 2 , email : "toto2@yahoo.fr" , message : "cool"},
+            { id : 3 , email : "toto3@yahoo.fr" , message : "produit à éviter"},
+            ]
+        }
+        // réalisation 
+        // const {title, description, commentaires} = data;
+        // console.log(`<h1>${title}</h1>`);
+        // console.log(`<p>${description}</p>`);
+        // console.log('<ul>');
+        // {commentaires.map((item, key) => {
+        //     console.log(`<li>${item.email} - ${item.message}</li>`);
+        // })}
+        // console.log('</ul>');
+
+        // correction v1 sans destructuration
+        let html1 = `<h1>${data.title}</h1>
+                        <p>${data.description}</p>
+                        </ul>`;
+        for (let i = 0; i < data.commentaires.length; i++) {
+            html1 += `<li>${data.commentaires[i].email} - ${data.commentaires[i].message}</li>`
+        }
+        html1 += '</ul>'
+        document.querySelector(".reponse1").innerHTML = html1;
+
+
+        // correction v2 avec destructuration
+        const {title, description, commentaires} = data;
+
+        let html2 = `<h1>${title}</h1>
+                        <p>${description}</p>
+                        </ul>`;
+        // for (let i = 0; i < data.commentaires.length; i++) {
+        //     html2 += `<li>${commentaires[i].email} - ${commentaires[i].message}</li>`
+        // }
+        commentaires.map((item, key) => {
+            html2 += `<li>${item.email} - ${item.message}</li>`;
+        })
+        html2 += '</ul>'
+        document.querySelector(".reponse2").innerHTML = html2;
+        
+        // correction v3
+        document.querySelector(".reponse3").innerHTML = `<h1>${title}</h1>
+                            <p>${description}</p>
+                            <ul>
+                                ${commentaires.map((item) => {
+                                    return `<li>${item.email} - ${item.message}</li>`
+                                }).join('')}
+                            </ul>`
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuration</title>
+</head>
+<body>
+    <script>
+        // destructuration est une technique qui a été introduite dans le language
+        // javascript à partir de ES6
+        // cette technique est à utiliser sur les tableaux et sur les objets
+
+
+        // CAS OBJETS
+        const formation = {
+            nom: "devweb",
+            duree: 6,
+            unite: "semaine",
+            sommaire : {
+                semaine1: 'html',
+                semaine2: 'css',
+                semaine3: 'javascript'
+            }
+        }
+
+        // écrire dans la console le texte suivant
+        // je suis une formation en dev wev avec du javascript
+
+        // méthode classique
+        const texte = `je suis une formation en ${formation.nom} avec du ${formation.sommaire.semaine3}`;
+        console.log(texte);
+        // dans cette méthode il faut utiliser formation plusieurs fois
+
+        // la destructuration permet d'enlever le mot formation
+        const {nom, sommaire} = formation; // récupère dans la variable formation sa propriété nom et sommaire
+        // à partir de maintenant on peut utiliser nom au lieu de formatio.nom
+        const texte2 = `je suis une formation en ${nom} avec du ${sommaire.semaine3}`;
+        console.log(texte2);
+        // const {nom, sommaire} = formation => const nom = formation.nom; const sommaire = formation.sommaire
+
+
+        // CAS TABLEAUX
+        const prix = [560, 240];
+        // 560 prixPS4
+        // 240 prixNintendoDS
+        // const prixPS4 = prix[0];
+        // const prixNintendoDS = prix[1];
+
+        const [prixPS4, prixNintendoDS] = prix; // l'ordre a son importance: prixPS4 = 560 et prixNintendoDS = 240;
+
+        function useState() {
+            return [10, function(){console.log("élément 2");}]
+        }
+
+        const resultat = useState();
+        console.log(resultat[0]); // 10
+        resultat[1]();
+
+        const [data, setData] = useState(); // fonction qui aura toujours 2 valeurs
+        // on utilisera directement la destructuration dès l'exécution de useState()
+        console.log(data); // 10
+        setData();
+
+        // méthode 1
+        const Article = contenu => {
+            console.log(`<h1>${contenu.titre}</h1><p>${contenu.body}</p>`);
+        };
+
+        Article({titre: "Article 1", body: "lorem ipsum"});
+        Article({titre: "Article 2", body: "lorem ipsum sed"});
+
+
+        // méthode 2
+        // communiquer des composants l'un avec les autres
+        const Article2 = ({titre, body}) => {
+            console.log(`<h1>${titre}</h1><p>${body}</p>`);
+        };
+
+        Article2({titre: "react vs angular", body: "lorem ipsum"});
+        Article2({titre: "react vs vue js", body: "lorem ipsum sed"});
+        
+    </script>
+</body>
+</html>
