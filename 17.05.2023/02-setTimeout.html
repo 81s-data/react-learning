@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Time Out</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            background: #373737;
+            color: #f5f5f5;
+        }
+        .hide {
+            display: none;
+        }
+        #game {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            overflow-x: auto; /* for horizontal scrolling*/
+            overflow-y: auto;
+        }
+        #images {
+            display: flex;
+            flex-direction: row;
+        }
+        img {
+            height: 100px;
+            margin: 20px;
+        }
+        #buttons {
+            display: flex;
+            width: 100px;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>CASINO</h1>
+    <div id="game">
+        <div id="images">
+            <img id ="image1" src="images.jpeg" alt="">
+            <img id ="image2" src="images.jpeg" alt="">
+            <img id ="image3" src="images.jpeg" alt="">
+        </div>
+    </div>
+    <div id="buttons">
+        <button id="launch-btn">LAUNCH</button>
+        <button id="stop-btn">STOP</button>
+    </div>
+    <script src="02-setTimeout.js"></script>
+</body>
+</html>

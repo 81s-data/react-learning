@@ -1,0 +1,7 @@
+npm i bootstrap
+
+Exo
+1 créer un nouveau composant qui s'appelle Deuxième
+2 ce composant retourne le jsx suivant <h2> je suis exo 2</h2>
+3 exécuter les composant Deuxieme dans App.jsx
+4 mettre ce composant à côté du composant Premier

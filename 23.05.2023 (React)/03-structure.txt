@@ -1,0 +1,28 @@
+Suite à la saisie des commandes, vous avez un dossier [nom du projet] 
+qui contient la structure suivante:
+
+node_modules (dossier) qui ne doit jamais être modifier manuellement
+
+public => contient l'ensemble des resources public du projet
+image / logo / fichier pdf / font
+
+src => le dossier dans lequel nous passons 95% du temps
+c'est dans ce dossier que l'on va créer des fichiers (composants)
+
+.gitignore => fichier de configuration pour réaliser du versionning
+
+index.html => c'est le SEUL fichier html que vous allez avoir dans TOUT le projet react
+
+dans le fichier index.html il y a la balise <div id="root"></div>
+
+tous les composants (dans le dossier src) que l'on va écrire vont être injecter (via react) dans cette balise
+
+package.json / package.lock.json
+(quelle est la version de react qu'on utilise)
+nous allons nous former sur la version 18.2.0 de react
+
+vite.config.js fichier de configuration de l'outil vite
+
+le dossier le plus important src
+
+2 fichiers.css > mise en package

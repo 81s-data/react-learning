@@ -1,0 +1,20 @@
+Pour vérifier si on a node installé node -v
+
+Une fois installé, il existe 4 manières d'installer React :
+
+=> npm i -g create-react-app
+=> create-react-app projet
+
+=> npx create-react-app projet
+
+=> parcel / webpack (a voir)
+
+=> npm create vite (celle que nous allons utiliser)
+    => Préciser le nom du projet
+    => Selectionner React
+    => Selectionner Javascript
+    > cd [nom du projet]
+    => npm install
+    => npm run dev
+
+http://localhost:5173/

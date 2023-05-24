@@ -1,0 +1,19 @@
+login: react
+mot de passe: fb
+
+React est TRES apprécie parce que :
+=> si vous comprenez html et javascript => vous allez comprendre vite
+=> utiliser REACT créer des applications RAPIDES = > charges rapidement ET qui se modifie rapidement grâce au VIRTUAL DOM
+
+DOM (de base)
+document.querySelector("h1").innerHTML = 'Bonjour';
+
+elle est rapide si vous avez un petit site.
+
+si vous avez un site internet supérieur à 20000 lignes > document.querySelector("h1").innerHTML = 'Bonjour' peut être très lent
+
+React a mis en place VIRTUAL DOM
+
+Concurrents :
+Angular => Google
+VueJS => ex-employé de Google

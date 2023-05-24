@@ -1,0 +1,30 @@
+en javascript
+
+lorsque vous voulez afficher une variable
+
+const a = "texte"; // créer variable a
+
+console.log(a); // afficher dans la console
+
+document.querySelector("p").innerHTML
+
+Exercice: Créer le composant Quatrieme
+
+dans ce composant il y a 3 variables:
+- test = true
+- fleurs = ['rose','jasmin','lilas]
+- formation = {
+    duree = 15,
+    unite = "jours"
+    nom = "react"
+}
+
+dans la partie return
+<div>
+    <h1>exo 2</h1>
+    <p> je suis une formation de 15 jours en react </p>
+    <p> j'aime les roses et le lilas </p>
+    si test est vrai = afficher "je vais en pause"
+    si test est faux => afficher "je travaille"
+</div>
+
