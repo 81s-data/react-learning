@@ -27,6 +27,9 @@ import Sixieme from "./composant/Sixieme";
 import Septieme from "./composant/Septieme";
 import Event from "./composant/Event";
 import EventSuite from "./composant/EventSuite";
+import Compteur from "./composant/Compteur";
+import Exo1 from "./composant/Exo1";
+import MultiState from "./composant/MultiState";
 
 function App() {
   return <div className="row">
@@ -60,6 +63,25 @@ function App() {
       </section>
       <section className="col-4">
         <EventSuite />
+      </section>
+      <section className="col-4">
+        <h2>Exemple state</h2>
+        <Compteur />
+        <Compteur /> {/** chaque composant dispose d'un state qui est autonome par rapport aux autres composants
+         * et est modifié tout seul / sans impacter les autres composants Compteur
+         * vous êtes en train d'utiliser le Virtual DOM
+         * explications virtual DOM => !yt graphikart react DOM
+         */}
+        <Compteur />
+        <Compteur />
+        <Compteur />
+        <Compteur />
+      </section>
+      <section className="col-4">
+        <Exo1 />
+      </section>
+      <section className="col-4">
+        <MultiState />
       </section>
     </div>
 }
