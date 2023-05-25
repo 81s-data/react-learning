@@ -49,6 +49,7 @@
         // const prixNintendoDS = prix[1];
 
         const [prixPS4, prixNintendoDS] = prix; // l'ordre a son importance: prixPS4 = 560 et prixNintendoDS = 240;
+        const [, prixNintendoDSOnly] = prix; //pour ne récupérer que le deuxième
 
         function useState() {
             return [10, function(){console.log("élément 2");}]
