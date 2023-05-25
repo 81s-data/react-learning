@@ -30,11 +30,15 @@ import EventSuite from "./composant/EventSuite";
 import Compteur from "./composant/Compteur";
 import Exo1 from "./composant/Exo1";
 import MultiState from "./composant/MultiState";
+import Ajax from "./composant/Ajax";
 
 function App() {
   return <div className="row">
       <section className="col-4">
         Bonjour
+      </section>
+      <section className="col-4">
+        <Ajax />
       </section>
       <section className="col-4">
         <p className="alert bg-success text-white border-blue text-center">test</p>

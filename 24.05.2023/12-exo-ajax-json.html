@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            display: grid;
+            gap : 10px;
+            margin: 0 auto;
+            max-width: 1000px;
+            font-family: sans-serif;
+        }
+        @media  (min-width : 500px) {
+            div{
+                grid-template-columns: repeat(2 , 1fr);
+            }
+        }
+        @media  (min-width : 700px) {
+            div{
+                grid-template-columns: repeat(3 , 1fr);
+            }
+        }
+        blockquote {
+            margin: 0;
+        }
+
+        blockquote {
+            padding: 15px;
+            background: #eee;
+            border-radius: 5px;
+        }
+
+        blockquote::before {
+            content: '\201C';
+        }
+
+        blockquote::after {
+            content: '\201D';
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        fetch('https://dummyjson.com/quotes')
+        .then(response => { return response.json()})
+        .then(({quotes}) => {
+            // let html = quotes.map(item => {
+            //         return `<article>
+            //             <p>${item.quote}</p>
+            //             <p>${item.author}</p>
+            //             </article>`
+            // }).join('')
+            let html = quotes.map(({quote, author}) => {
+                    return `<article>
+                        <blockquote>${quote}</blockquote>
+                        <blockquote>${author}</blockquote>
+                        </article>`
+            }).join('')
+            document.querySelector('div').innerHTML = html;
+        });
+    </script>
+</body>
+</html>

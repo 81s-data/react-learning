@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- dans react / comme dans html (javascript)
+    on peut créer des variables qui contiennent plusieurs valeurs
+    => ces variables ce sont des tableaux ou des objets
+    -->
+    <script>
+        const etudiants = [
+            {id: 1, nom: "a", age: 22},
+            {id: 2, nom: "b", age: 21},
+            {id: 3, nom: "c", age: 19},
+            {id: 4, nom: "d", age: 22},
+            {id: 5, nom: "e", age: 30},
+        ]
+        // créer une collection c'est très bien
+        // mais c'est limité
+        // Deux limites des collections:
+        // - Maintenance dans le temps => difficile de faire vivre une variable comme une collection 
+        //                                si il y a très régulièrement des modifications : ajouter des lignes / modifier des lignes
+        // - Sécurité des données => difficile de mettre ses mots de passe / numéros de carte bleu dans une collection
+
+        // au lieu d'utiliser des collections => Bases de données
+        // classique : interroger via du SQL
+        // MAIS dans le cadre de React, les données de la base sont emballées dans une API (Application Program Interface)
+
+        // on va interroger les bases de données via Requete HTTP
+
+        // React va faire des requêtes AJAX => API => Base de données
+
+        // Depuis ES6, javascript dispose d'une nouvelle fonction: fetch
+        // elle permet de faire des requêtes HTTP (ou AJAX)
+
+        // requête ajax / http
+        fetch('https://dummyjson.com/products')
+        .then(reponse => {
+            return reponse.json();
+        })
+        .then(produit => {
+            console.log(produit);
+        });
+        // requête SQL
+        // SELECT * FROM produits
+
+        fetch('https://dummyjson.com/products/1')
+        .then(reponse => {
+            return reponse.json();
+        })
+        .then(produit => {
+            console.log(produit);
+        });
+        // SELECT * FROM produits WHERE id = 1
+    </script>
+</body>
+</html>
