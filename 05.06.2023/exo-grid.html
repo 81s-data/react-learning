@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="bloc1">
+        <p class="une">nom boutique</p>
+        <p class="article2">10€</p>
+        <p class="article3">20€</p>
+    </div>
+    </div>
+    <style>
+        body {
+            width: 800px;
+            margin: 0 auto;
+        }
+        #bloc1 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+        }
+        #bloc1 .une {
+            background-image: url('./css-grid/src/assets/wallpaper.jpeg');
+            background-size: cover;
+            width: 160px;
+            height: 160px;
+            border: 2px solid;
+            resize: both;
+            grid-column: span 2;
+            grid-row: span 2;
+            color: aliceblue;
+        }
+        #bloc1 .article2 {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+        #bloc1 .article3 {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+        p {
+            margin: 0;
+        }
+    </style>
+</body>
+</html>

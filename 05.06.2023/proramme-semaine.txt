@@ -1,0 +1,11 @@
+// consolidation exo
+
+display grid
+
+Menu => librarie react-router-dom => Navigation dans vos applications React
+
+UseContext / createContext
+
+CRUD => base de données
+
+useRef / useContext
