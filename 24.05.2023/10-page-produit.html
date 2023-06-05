@@ -10,23 +10,6 @@
     <pre></pre>
     <div></div>
     <script>
-        // fetch("https://dummyjson.com/products")
-        //     .then( function(reponse){ return reponse.json()  } )
-        //     .then( function({products}) { 
-        //         // document.querySelector("pre").innerHTML = JSON.stringify(products , null , "   ")
-        //         let  html = products.map(function(item){
-        //             return `<article>
-        //                     <h2>${item.title}</h2>
-        //                     <img src="${item.thumbnail}" alt="" >
-        //                     <p>${item.description}</p>
-        //                     <ul>
-        //                         <li>${item.price}</li>
-        //                         <li><button>acheter</button></li>
-        //                     </ul>
-        //                 </article>`
-        //         }).join("")
-        //         document.querySelector("div").innerHTML = html 
-        //     });
         fetch("https://dummyjson.com/products")
             .then( function(reponse){ return reponse.json()  } )
             .then( function({products}) { 
