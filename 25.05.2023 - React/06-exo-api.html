@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exo Api</title>
+</head>
+<body>
+    <div></div>
+    <script>
+        // faire une requête ajax vers l'api suivante
+        // https://restcountries.com/v3.1/all
+        // cette api permet de récupérer la liste complète de tous les pays dans le monde
+        // id 206 = vietnam
+        // fetch('https://restcountries.com/v3.1/all')
+        // .then(response => response.json())
+        // .then(data => {
+        //     console.log(JSON.stringify(data));
+        // })
+        // récupérer uniquement sur chaque pays
+        // unqiuement drapeau / capitale / nom
+        fetch('https://restcountries.com/v3.1/all')
+        .then(response => response.json())
+        .then(data => {
+            const resultat = data.map(pays => { //enlever toutes les props
+                return {
+                    nom: pays.name,
+                    drapeau: pays.flag,
+                    capitale: pays.capital? pays.capital[0] : 'none'
+                }
+            })
+            console.log(resultat);
+            console.log(resultat.filter(item => {
+                return item.capitale === 'Paris';
+            }))
+            console.log(resultat.find(item => {
+                return item.capitale === 'Paris';
+            }))
+        })
+
+        // Réaliser une requête ajax vers l'api suivante :
+        // https://dummyjson.com/products
+
+        // mapper uniquement les colones title / price / thumbnail
+        // les afficher dans la console
+        fetch('https://dummyjson.com/products')
+        .then(response => response.json())
+        .then(({products}) => {
+            products.map(({title, price, thumbnail}) => {
+                // console.log(title, price, thumbnail);
+                document.querySelector('div').innerHTML += `<section>
+                    <h3>${title}</h3>
+                    <img src="${thumbnail}"></img>
+                    <p>${price}</p>
+                    </section>`;
+            })
+        })
+    </script>
+    <style>
+        div {
+            display:grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10;
+        }
+        section {
+            border : 1px solid black;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        img {
+            max-width: 100%;
+            height: 250px;
+            object-fit: contain;
+        }
+    </style>
+</body>
+</html>

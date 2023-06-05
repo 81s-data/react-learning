@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exo Api Mapping</title>
+</head>
+<body>
+    <div id="root">
+        <button></button>
+    </div>
+    <script>
+        // https://restcountries.com/v3.1/all
+        // mapper les colones name / capitale / region / population / flags
+
+        //<section>
+        //  <h2>name
+        //  <img src="flags.png" alt="">
+        //  <ul>
+        //      <li> population:
+        //      <li> region:
+        //      <li> capital:
+        //  </ul>
+        //</section>
+        fetch('https://restcountries.com/v3.1/all')
+        .then(response => response.json())
+        .then(pays => {
+            pays.map(({name, capital, region, population, flags}) => {
+                document.querySelector('#root').innerHTML += `<section>
+                        <h2>${name.common}</h2>
+                        <img src="${flags.png}" alt="${flags.alt}">
+                        <ul>
+                            <li> population: ${population} habitants </li>
+                            <li> region: ${region} </li>
+                            <li> capital: ${capital} </li>
+                        </ul>
+                    </section>`;
+            })
+        })
+    </script>
+    <style>
+        div {
+            display:grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10;
+        }
+        section {
+            border : 1px solid black;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        img {
+            max-width: 100%;
+            height: 250px;
+            object-fit: contain;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exo Data Json</title>
+</head>
+<body>
+    <!-- exo créer le fichier 04-data.json 
+    il contient les valeurs suivantes 
+    { 
+        "sommaire" : [ "js" , "ajax" , "angular" , "node" , "react" ] ,
+        "etudiants" : [
+            { id : 1 , nom : "Alain" },
+            {id : 2 , nom : "Céline" }
+        ]
+    }
+    créer le fichier 04-exo.html 
+    réaliser une requête ajax qui appelle le fichier 04-data.json 
+    afficher dans la console le nom du dernier étudiant
+    afficher dans la console le nom de la 3ème matière du sommaire -->
+    <script>
+        fetch('http://127.0.0.1:5500/25.05.2023/04-exo-data.json')
+        .then(response => response.json())
+        .then(({etudiants}) => {
+            console.log(etudiants[etudiants.length - 1].nom);
+        })
+        fetch('http://127.0.0.1:5500/25.05.2023/04-exo-data.json')
+        .then(response => response.json())
+        .then(({sommaire}) => {
+            console.log(sommaire[2]);
+        })
+        fetch('http://127.0.0.1:5500/25.05.2023/04-exo-data.json')
+        .then(response => response.json())
+        .then(({etudiants, sommaire}) => {
+            console.log(etudiants[etudiants.length - 1].nom);
+            console.log(sommaire[2]);
+        })
+    </script>
+</body>
+</html>

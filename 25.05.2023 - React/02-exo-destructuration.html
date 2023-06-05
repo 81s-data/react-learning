@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exo destructuration</title>
+</head>
+<body>
+    <script>
+        // créer le fichier 02-exo.html
+
+        // créer une variable
+        // qui s'apelle article et qui contient la valeur suivante
+        const article2 = {
+            titre: "article 1",
+            contenu: "lorem ipsum",
+            auteur: {
+                nom: "Alain",
+                role: "admin"
+            },
+            commentaires : [
+                { id : 1, email: "toto@yahoo.fr", message : "merci"},
+                { id : 2, email: "toto2@yahoo.fr", message : "salut"},
+                { id : 3, email: "toto3@yahoo.fr", message : "à bientot"},
+                { id : 4, email: "toto4@yahoo.fr", message : "lorem ipsum"}
+            ]
+          }
+          // en utilisant la destructuration récupérer le nom de l'auteur
+          const {nom} = article2.auteur.nom;
+          // en utilisant la destructuration récupérer l'email du 2ème commentaire
+          const {email} = article2.commentaires[1].email;
+          const {email2} = article2.commentaires.find(item => item.id === 2);
+          // en utilisant la destructuration récupérer le message du dernier commentaire
+          const {message} = article2.commentaires[commentaires.length - 1].message;
+          // en utilisant la destructuration récupérer le titre de l'article
+          const {titreArticle} = article2.titre;
+          // en utilisant la destructuration récupérer le premier commentaire (id, email, message)
+          const [premierCommentaire] = article2.commentaires;
+          console.log(premierCommentaire);
+
+          const {titre, contenu, auteur, commentaires} = article2;
+          console.log("nom auteur: " + auteur.nom);
+          console.log("email 2ème commentaire: " + commentaires[1].email);
+          console.log("message dernier commentaire: " + commentaires[commentaires.length-1].message);
+          console.log("titre article: " + titre);
+          console.log("premier commentaire: " + JSON.stringify(commentaires[0]));
+    </script>
+</body>
+</html>
