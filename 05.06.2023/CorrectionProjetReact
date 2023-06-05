@@ -2,3 +2,38 @@ rfce (snippet) : créer un component avec ses import et export
 
 Intl.NumberFormat('fr-Fr') => 123 453
 Intl.NumberFormat('en-En') => 123,453
+
+<script>
+
+    const etudiants = {
+        etudiant1 : {nom : "Alain"},
+        etudiant2 : {nom : "Céline"}
+    }
+
+    etudiants.etudiant1.nom
+
+    const id = "etudiant1";
+    etudiants[id].nom
+
+    for(let i = 1 ; i <=2 ; i++){
+        etudiants["etudiant"+i].nom
+    }
+
+    const cocktails = [
+        {
+            ingrediant1 : "rhum",
+            ingrediant2 : "fruit de la passion"
+        },
+        {
+            ingrediant1 : "pomme",
+            ingrediant2 : "banane"
+        },
+    ]
+
+    for(let cocktail of cocktails){
+        for(let i = 1 ; i <= 2 ; i++){
+            console.log(cocktail["ingrediant"+i])
+        }
+    }
+
+</script>
