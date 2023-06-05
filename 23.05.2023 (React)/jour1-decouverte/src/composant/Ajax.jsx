@@ -1,4 +1,5 @@
 import React, { useState , useEffect } from 'react';
+import './Ajax.css';
 function Ajax() {
     const [quotes, setQuotes] = useState([]);  // valeur locale
     useEffect( function(){ 
@@ -12,10 +13,10 @@ function Ajax() {
     } )
     return <div className='row'>
         {quotes.map(function({quote , author}, key){
-                    return <article key={key} className='col-3'>
-                        <blockquote>{quote}</blockquote>
-                        <p>{author}</p>
-                    </article>
+            return <article key={key} className='col-3'>
+                <blockquote>{quote}</blockquote>
+                <p>{author}</p>
+            </article>
         })}
     </div>;
 }

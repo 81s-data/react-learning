@@ -37,7 +37,7 @@ function App() {
       <section className="col-4">
         Bonjour
       </section>
-      <section className="col-4">
+      <section className="col-12">
         <Ajax />
       </section>
       <section className="col-4">
