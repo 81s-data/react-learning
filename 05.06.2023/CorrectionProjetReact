@@ -1,0 +1,4 @@
+rfce (snippet) : créer un component avec ses import et export
+
+Intl.NumberFormat('fr-Fr') => 123 453
+Intl.NumberFormat('en-En') => 123,453
