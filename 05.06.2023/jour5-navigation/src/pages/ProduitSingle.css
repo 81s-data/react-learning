@@ -10,12 +10,6 @@
     justify-content: center;
 }
 
-.light-box button {
-    position: absolute;
-    right: 20px;
-    top: 20px;
-}
-
 .light-box img {
-    
+    max-height: 90%;
 }

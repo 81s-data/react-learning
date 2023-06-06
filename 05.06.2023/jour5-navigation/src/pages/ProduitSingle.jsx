@@ -28,8 +28,7 @@ function ProduitSingle() {
 
     return (
         <div>
-            { lightbox.show && <div className='light-box'>
-                <button onClick={hideLightBox}>Fermer</button>
+            { lightbox.show && <div className='light-box' onClick={hideLightBox}>
                 <img src={lightbox.img}></img>
             </div>}
             { Object.keys(produit).length > 0 && <div className='container'>
