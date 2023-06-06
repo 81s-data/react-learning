@@ -1,0 +1,12 @@
+Il faut savoir utiliser une $_SESSION dans React 
+$_SESSION => context
+
+=> pour présenter les formulaires
+aller ajouter dans le composant <NousContacter />
+(projet du 05.06.2023)
+
+ajouter dedans un formulaire qui contient 3 champs
+=> 1er champ dans lequel la personne va saisir son email
+=> 2eme champ dans lequel la personne va saisir le sujet
+=> 3eme champ dans lequel l'utilisateur va pouvoir mettre un commentaire
+=> bouton de validation
