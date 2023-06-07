@@ -21,6 +21,9 @@ function Menu() {
             <li className='nav-item'>
               <Link to='/login' className='nav-link'>Connexion</Link>
             </li>
+            <li className='nav-item'>
+              <Link to='/admin' className='nav-link'>Dashboard</Link>
+            </li>
           </ul>
         </nav>
       </div>
