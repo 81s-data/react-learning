@@ -1,11 +1,14 @@
 import React from 'react';
-import Joi from 'joi';
+import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 
+import Joi from 'joi';
+import './Login.css';
+
 function Login() {
-//   dans le composant <Login />
-// insérer dans un formulaire 
-// contenant 2 champs 
+// dans le composant <Login />
+// insérer dans un formulaire
+// contenant 2 champs
 // input type texte => saisir un login
 // input type password => saisir un password
 // et un bouton de soumission
@@ -18,41 +21,40 @@ function Login() {
 // => si c'est ok => toast message => welcome
 // => si ko => toast message => liste les erreurs
 
-  let dataForm = {login: '', password: ''}
+  let credentials = {login: '', password: ''}
+
+  let navigate = useNavigate();
 
   const formData = (e) => {
-    dataForm[e.target.name] = e.target.value;
+    credentials[e.target.name] = e.target.value;
   }
 
   const checkForm = (e) => {
     e.preventDefault();
 
     const schema = Joi.object({
-      login : Joi.string().min(3).max(255).required().messages({
-        "string.min" : "l'indentifiant doit contenir au minimun 3 lettres",
-        "string.max" : "l'indentifiant doit contenir au maximum 64 lettres",
-        "string.email" : "l'indentifiant soumis n'est pas valide",
+      login : Joi.string().min(3).max(64).required().messages({
+        "string.min" : "l'identifiant doit contenir au minimun 3 lettres",
+        "string.max" : "l'inentifiant doit contenir au maximum 64 lettres",
         "string.empty" : "le champ identifiant est obligatoire"
       }),
-      password : Joi.string().min(3).max(255).required().messages({
-        "string.min" : "le mot de passe doit contenir au minimun 3 lettres",
-        "string.max" : "le mot de passe doit contenir au maximum 255 lettres",
-        "string.empty" : "le le mot de passe est obligatoire"
-      })
+      password : Joi.string().regex(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/).required().messages({
+        "string.pattern.base" : "le password doit contenir 8 lettres avec des Majuscules, des minuscules et des chiffres"
+      } )
     })
 
-    const {error} = schema.validate(dataForm, {abortEarly :false})
+    const {error} = schema.validate(credentials, {abortEarly :false})
 
     if (!error) {
       // par la suite => INSERT dans une base de données, envoyer un email, ...
       console.log('inserer base de données');
       // vider le forumulaire
       e.target.reset();
-      dataForm = {login: '', password: ''}
+      credentials = {login: '', password: ''}
       // afficher un bandeau en haut du formulaire
       // qui dit 'merci pour le message on revient vers vous au plus vite"
       // => librarie react-toastify
-      toast.success('création de compte réussie');
+      navigate('/admin')
     } else {
       for(let msg of error.details) {
         toast.error(msg.message);
@@ -62,21 +64,17 @@ function Login() {
 
   return (
     <div className='container'>
-      <h1>Connexion</h1>
-      <ToastContainer />
-      <form onSubmit={checkForm}>
-        <div className='form-floating mb-3'>
-          <input type="text" className='form-control' id='login' name='login' onInput={formData}/>
-          <label htmlFor="login">Identifiant</label>
-        </div>
-        <div className='form-floating mb-3'>
-          <input type="password" className='form-control' id='password' name='password' onInput={formData}/>
-          <label htmlFor="password">Mot de passe</label>
-        </div>
-        <div className='mb-3 d-flex justify-content-end'>
-          <input type='submit' className='btn btn-info' value="se connecter" />
+      <h1 className='text-center my-5'>Connexion</h1>
+      <form className='grid-form' onSubmit={checkForm}>
+          <input type="text" className='form-control me-3' placeholder='votre identifiant'
+                  id='login' name='login' onInput={formData}/>
+          <input type="password" className='form-control me-3' placeholder='votre mot de passe'
+                  id='password' name='password' onInput={formData}/>
+        <div>
+          <input type='submit' className='btn btn-info'/>
         </div>
       </form>
+      <ToastContainer />
     </div>
   )
 }
