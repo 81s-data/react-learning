@@ -11,11 +11,10 @@ function NousContacter() {
     dataForm[e.target.name] = e.target.value;
   }
 
-  const checkValues = (e) => {
+  const checkFields = (e) => {
     // bloquer le rechargement automatique de la page
     e.preventDefault();
 
-    dataForm
     // lorsque je soumets le formulaire
     // je dois récupérer les valeurs saisies u formulaire
     // vérifier qu'elles sont correctes
@@ -43,6 +42,7 @@ function NousContacter() {
     // si c'est pas correct => non
     // afficher dans la console
     const {error} = schema.validate(dataForm, {abortEarly :false})
+
     if (!error) {
       // par la suite => INSERT dans une base de données, envoyer un email, ...
       console.log('inserer base de données');
@@ -65,20 +65,20 @@ function NousContacter() {
       <h1>Nous Contacter</h1>
       <p>Vous avez des questions, nous avons les réponses !</p>
       <ToastContainer />
-      <form onSubmit={checkValues}>
+      <form onSubmit={checkFields}>
         <div className='form-floating mb-3'>
           <input type="email" className='form-control' id='email'
-          onChange={formData} name='email' placeholder='votre@email.com'/>
+          onChange={formData} name='email'/>
           <label htmlFor="email">votre email</label>
         </div>
         <div className='form-floating mb-3'>
           <input type="text" className='form-control' id='sujet'
-          onChange={formData} placeholder='le sujet du message' name='sujet'/>
+          onChange={formData} name='sujet'/>
           <label htmlFor='sujet'>votre sujet</label>
         </div>
         <div className='form-floating mb-3'>
           <textarea className='form-control' id='commentaire' onChange={formData}
-          style={{ height : '150px'}} placeholder='votre commentaire' name='commentaire'/>
+          style={{ height : '150px'}} name='commentaire'/>
           <label htmlFor='commentaire'>votre commentaire</label>
         </div>
         <div className='mb-3 d-flex justify-content-end'>
