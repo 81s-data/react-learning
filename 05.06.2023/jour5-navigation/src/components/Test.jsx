@@ -2,6 +2,8 @@ import React , {useState, useEffect} from 'react'
 function Test() {
 
     // Exemple d'utilisation de useEffect avec variable
+    // Uniquement lorsque la modification du state en question entraine la modification
+    // d'un autre state
 
     const [recherche, setRecherche] = useState("")
     const [resultat, setResultat] = useState([])
