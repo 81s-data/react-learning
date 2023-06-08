@@ -70,7 +70,6 @@ function List({updateList, setUpdateList}) {
                             <form onSubmit={submit}>
                                 <input type="text" name="titre" id="titre" onChange={function(e) {change(e, item.id);}}
                                 className='me-3'/>
-                                <input type="checkbox" name="statusChange" id="statusChange" className='me-3'/>
                                 <input type="submit" name="envoyer" id="envoyer" value="envoyer"
                                 onChange={function(e) { change(e, item.id);}}/>
                             </form>
@@ -85,8 +84,6 @@ function List({updateList, setUpdateList}) {
                         </div>
                     }
                 </li>
-                
-                    
             })}
         </ol>
     </div>
