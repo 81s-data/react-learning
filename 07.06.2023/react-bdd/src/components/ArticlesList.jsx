@@ -64,7 +64,7 @@ function ArticlesList({setUpdateList, updateList}) {
     return (
         <div className='w-50 mx-auto'>
             <h1 className='text-center'>Articles</h1>
-            {articles.map((item, key) => {
+            {articles.length > 0 && articles.map((item, key) => {
                 return < div key={key}>{
                     item.id === id ? 
                     <form onSubmit={submit} key={key}>

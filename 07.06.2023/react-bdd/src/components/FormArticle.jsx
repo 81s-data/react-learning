@@ -21,12 +21,12 @@ function FormArticle({setUpdateList}) {
                     'content-type' : 'application/json'
                 }
             }
-
             fetch('http://localhost:4200/articles', option)
             .then(response => response.json)
             .then(data => {
-                console.log(data);
+                e.target.reset(); // reset le formulaire
                 setUpdateList(function(update){return !update});
+                console.log(data);
             })
         }
     }
