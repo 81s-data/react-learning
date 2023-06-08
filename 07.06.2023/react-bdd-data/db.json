@@ -8,24 +8,9 @@
   ],
   "articles": [
     {
-      "id": 7,
-      "titre": "text modif",
-      "body": "ah okokok"
-    },
-    {
-      "id": 8,
-      "titre": "test modif",
-      "body": "earaerarae"
-    },
-    {
       "titre": "testazeaze12",
       "body": "earaeraraeazaz",
       "id": 9
-    },
-    {
-      "titre": "okokokok",
-      "body": "okokokokoko",
-      "id": 10
     },
     {
       "titre": "testetst",

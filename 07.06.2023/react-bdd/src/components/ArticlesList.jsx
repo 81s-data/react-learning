@@ -81,7 +81,7 @@ function ArticlesList({setUpdateList, updateList}) {
                         <h4>{item.titre}</h4>
                         <p>{item.body}</p>
                         <button className='btn btn-warning me-3'onClick={() => modifier(item.id)} >Modifier</button>
-                        <button className='btn btn-danger' onClick={() => supprimer(id)}>Supprimer</button>
+                        <button className='btn btn-danger' onClick={() => supprimer(item.id)}>Supprimer</button>
                     </article>
                 }</div>
             })}
