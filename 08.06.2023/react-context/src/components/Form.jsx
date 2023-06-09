@@ -19,20 +19,29 @@ function Form() {
       return;
     }
     if (data.login === user.login && data.password === user.password) {
-      setUser()
+      setUser(function(prevUser){
+        const cloneUser = structuredClone(prevUser);
+        cloneUser.isLogged = true
+        return cloneUser; 
+      })
     }
   }
 
   return (
     <div>
-      <h2>Connexion</h2>
+      <h2>connexion</h2>
+      { user.isLogged 
+        ? 
+        <p>Bienvenue</p>
+        : 
       <form onSubmit={submit}>
-        <input type="text" name="text" placeholder='login' />
+        <input type="text" name="login" placeholder='login' ref={refLogin} />
         <br />
-        <input type="password" name="password" placeholder='password' />
+        <input type="password" name='password' placeholder='password' ref={refPassword} />
         <br />
-        <input type="submit" value="connexion" />
+        <input type="submit" value="connexion"/>
       </form>
+      }
       {/** si l'utilisateur saisit 
        * login: toto@gmail.com 
        * password: tutu123
