@@ -2,22 +2,13 @@ import React, {useContext} from 'react'
 import {ConnexionContext} from '../context/connexionContext'
 
 function Menu() {
-  const { user, setUser } = useContext(ConnexionContext);
-
-  const deconnexion = () => {
-    setUser(() => {
-      const cloneUser = structuredClone(user);
-      cloneUser.isLogged = false;
-      return cloneUser;
-    })
-  }
+  const { logout, isLogged } = useContext(ConnexionContext);
 
   return (
     <div>
-      { user.isLogged ? <>
+      { isLogged() ? <>
       Dashboard
-      <button onClick={deconnexion}>deconnexion</button></> : <>Login</>}
-      {JSON.stringify(user)}
+      <button onClick={logout}>deconnexion</button></> : <>Login</>}
     </div>
   )
 }
