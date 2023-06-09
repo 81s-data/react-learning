@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import { PanierContext } from '../context/PanierContext';
 import './ProduitSingle.css'
 
 function ProduitSingle() {
     
+    const {add} = useContext(PanierContext);
+
     const {id} = useParams(); // permet de récupérer la partie variable dans l'url
     // :id/:title défini dans le router
 
@@ -54,7 +57,8 @@ function ProduitSingle() {
                         <h1>{produit.title}</h1>
                         <p>{produit.description}</p>
                         <p>{new Intl.NumberFormat("fr-FR", { style: 'currency', currency: 'EUR' }).format(produit.price)  }</p>
-                        <p>{produit.brand}</p>
+                        <p>Marque : {produit.brand}</p>
+                        <button className='btn btn-success btn-lg' onClick={() => add(produit)}>Ajouter au panier</button>
                     </div>
                 </section>
             </div>}
