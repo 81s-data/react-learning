@@ -53,7 +53,7 @@ function Liste() {
                     <th>#action</th>
                 </tr>
             </thead>
-                <tbody onDragOver={onDragOver}>
+            <tbody onDragOver={onDragOver}>
                 { 
                     operations.map(function(item , key){
                         return < tr key={key} onDragStart={dragStart} onDragEnd={dragEnd} draggable={true}>
@@ -83,8 +83,7 @@ function Liste() {
                         </tr>
                     })
                 }
-                </tbody>
-           
+            </tbody>
         </table>
     </div>
   )
