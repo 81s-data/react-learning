@@ -1,12 +1,18 @@
-import React, { useContext } from 'react'
-import {DepensesContext} from '../context/DepensesContext'
+import React, { useContext, useEffect } from 'react'
+import { DepensesContext } from '../context/DepensesContext'
 
-export default function Details() {
+import './Details.css'
 
-    const {depenses} = useContext(DepensesContext);
+export default function Details({update}) {
+
+    const {depenses, supprimerDepenseById} = useContext(DepensesContext);
+
+    useEffect(() => {
+        
+    }, [update])
 
     return (
-        <div>
+        <div className='details'>
             <h1 className='text-center'>Details</h1>
             <table>
                 <thead>
@@ -24,13 +30,15 @@ export default function Details() {
                             <td>{nom}</td>
                             <td>{montant}</td>
                             <td>
-                                <button className='btn btn-primary'>Modifier</button>
-                                <button className='btn btn-dark'>Supprimer</button>
+                                <button className='btn btn-primary me-3'>Modifier</button>
+                                <button className='btn btn-dark' onClick={() => supprimerDepenseById(id)}>Supprimer</button>
                             </td>
+
                         </tr>
                     })}
                 </tbody>
             </table>
+            <hr />
         </div>
     )
 }

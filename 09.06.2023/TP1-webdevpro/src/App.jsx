@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Details from './components/Details'
 import Total from './components/Total'
 import Synthese from './components/Synthese'
@@ -8,14 +8,17 @@ import Depense from './components/Depense'
 import './App.css'
 
 function App() {
+
+  const [update, setUpdate] = useState(false);
+
   return (
-    <div>
-      <DepensesContextProvider>
+    <div className='app'>
+      <DepensesContextProvider update={update} setUpdate={setUpdate}>
         <Total />
         <Synthese />
         <Details />
         <Depense />
-      </DepensesContextProvider>
+      </DepensesContextProvider >
     </div>
   )
 }

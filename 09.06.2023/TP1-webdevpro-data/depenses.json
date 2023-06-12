@@ -1,18 +1,18 @@
 {
   "elements": [
     {
-      "id": 1,
-      "nom": "produit 1",
-      "montant": 100
+      "nom": "poisson",
+      "montant": -40,
+      "id": 1
     },
     {
-      "id": 2,
-      "nom": "produit 2",
-      "montant": -50
+      "nom": "viande",
+      "montant": -345,
+      "id": 2
     },
     {
-      "nom": "test",
-      "montant": "23",
+      "nom": "salaire",
+      "montant": 5000,
       "id": 3
     }
   ]

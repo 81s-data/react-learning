@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { DepensesContext } from '../context/DepensesContext';
 
 function Total() {
+
+  const { depenses } = useContext(DepensesContext);
+
   return (
-    <div>
-        <h1 className='text-center'>Total</h1>
+    <div className='text-center'>
+        <h1>Total</h1>
+        <p>{depenses.reduce((total, item) => {
+          return total + item.montant;
+        }, 0)}</p>
+        <hr />
     </div>
   )
 }
