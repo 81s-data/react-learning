@@ -1,0 +1,19 @@
+{
+  "operations": [
+    {
+      "id": 2,
+      "nom": "revenu 123",
+      "montant": 7523
+    },
+    {
+      "id": 3,
+      "nom": "Paiement facture",
+      "montant": 400
+    },
+    {
+      "nom": "Remboursement frais de transport",
+      "montant": 50,
+      "id": 4
+    }
+  ]
+}
