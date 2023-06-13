@@ -1,7 +1,26 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { signOut } from 'firebase/auth';
+import { auth } from '../config/firebase';
+
+import { AuthContext } from '../context/AuthContext'
 
 function Menu() {
+
+  const {isLogged , setUser} = useContext(AuthContext);
+    const navigate = useNavigate()
+    function logout(){
+        signOut(auth)
+        .then(() => {
+            localStorage.removeItem("authentification");
+            navigate('/');
+            setUser({})
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    }
+
   return (
     <div className='bg-primary'>
         <nav className='navbar navbar-expand container navbar-dark'>
@@ -10,9 +29,15 @@ function Menu() {
             <li className='nav-item'>
               <Link to='/' className='nav-link'>Home</Link>
             </li>
-            <li className='nav-item'>
-              <Link to='/login' className='nav-link'>Login</Link>
-            </li>
+            {isLogged() ?
+              <li className='nav-item'>
+                <button onClick={logout} className='nav-link bg-danger rounded text-dark'>Logout</button>
+              </li>
+              :
+              <li className='nav-item'>
+                <Link to='/login' className='nav-link bg-success rounded text-dark'>Login</Link>
+              </li>
+            }
           </ul>
         </nav>
       </div>
