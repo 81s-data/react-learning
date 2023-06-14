@@ -1,0 +1,14 @@
+Pour effectuer un build automatique sur Netlify avec GitHub:
+
+    1. Créer un nouveau site sur Netlify
+    2. Import an existing project
+    3. Selectionner le chemin du repo
+
+Rappel git:
+
+git init
+git add --all
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/81s-data/greta-blog.git
+git push -u origin main

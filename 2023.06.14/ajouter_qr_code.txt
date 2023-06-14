@@ -1,0 +1,3 @@
+https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=[url_du_site]
+
+url_du_site => site de redirection
