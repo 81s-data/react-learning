@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import { collection, addDoc, getDocs } from 'firebase/firestore'
+import { collection, addDoc, getDocs, doc, deleteDoc } from 'firebase/firestore'
 
 import { AuthContext } from '../context/AuthContext'
 import { db } from '../config/firebase';
@@ -12,17 +12,18 @@ function Home() {
   const textRef = useRef();
 
   const [articles, setArticles] = useState([])
+  const [id, setId] = useState(0);
 
   useEffect(() => {
     async function getDocuments() {
       const data = await getDocs(collection(db, 'articles'))
-      return data.docs.map(item => {
-              return item.data();
+      const articles = data.docs.map(item => {
+        return {...item.data(), id: item.id};
       })
+      setArticles(articles)
+      return articles
     }
-    getDocuments().then((data) => {
-      setArticles(data);
-    });
+    getDocuments();
   }, [update])
 
   const resetForm = () => {
@@ -38,9 +39,21 @@ function Home() {
       resetForm();
       return;
     }
-    addDoc(collection(db, 'articles'), {title: titleRef.current.value, text: textRef.current.value});
+    const data = {title: titleRef.current.value, text: textRef.current.value}
+    data.dt_creation = new Date();
+    addDoc(collection(db, 'articles'), data);
     setUpdate((update) => {!update})
     resetForm();
+  }
+
+  const deleteArticle = async (id) => {
+    const ref = doc(db, "articles", id)
+    await deleteDoc(ref)
+    setUpdate(!update);
+  }
+
+  const updateArticle = async (id) => {
+    
   }
 
   return (
@@ -55,11 +68,18 @@ function Home() {
               </form>
               </div>
               <div className='col'>
-                <ul>
-                  {articles.map((item, key) => {
+                <ul className='list-unstyled'>
+                  {articles?.map((item, key) => {
                     return <li key={key}>
                       <h2>{item.title}</h2>
                       <p>{item.text}</p>
+                      <p>{new Intl.DateTimeFormat("fr-FR").format(new Date(item?.dt_creation?.seconds * 1000))}</p>
+                      {isLogged() &&
+                      <div>
+                        <button className='btn btn-warning me-3'onClick={() => updateArticle(item.id)} >Update</button>
+                        <button className='btn btn-danger' onClick={() => deleteArticle(item.id)} >Delete</button>
+                      </div>
+                      }
                     </li>
                   })}
                 </ul>
