@@ -53,7 +53,7 @@ function Home() {
   }
 
   const updateArticle = async (id) => {
-    
+    // TODO Implémenter la modification d'un article
   }
 
   return (

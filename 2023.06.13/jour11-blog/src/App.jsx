@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import Menu from './components/Menu'
 import { AuthContextProvider } from './context/AuthContext'
+import { LangContextProvider } from './context/LangContext'
 
 function App() {
 
@@ -9,10 +10,12 @@ function App() {
 
   return (
     <AuthContextProvider update={update} setUpdate={setUpdate}>
-      <div>
-          <Menu />
-          <Outlet />
-      </div>
+      <LangContextProvider>
+        <div>
+            <Menu />
+            <Outlet />
+        </div>
+      </LangContextProvider>
     </AuthContextProvider>
   )
 }
