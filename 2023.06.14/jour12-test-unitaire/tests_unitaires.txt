@@ -1,0 +1,51 @@
+pour réaliser des tests unitaires
+nous devons installer la librairie jest
+=> npm init --yes
+cette commande créer un fichier package.json
+npm i -D jest
+cette commande permet d'installer la librairie qui va nous permettre de réaliser des tests
+jest est une librairie de développement
+=> c'est une librairie qui ne doit être disponible et installée QUE sur l'environnement de développement
+=> NE DOIT PAS être envoyée en production
+d'où l'option -D
+
+modifier le package.json: 
+    Dans "scripts", ajouter "test": "jest --watchAll" (modifier ou supprimer l'ancien attribut test)
+
+cette modification permet de lancer jest:
+    npm run test
+
+it('[description du test]', () => {
+    // String
+    expect(...).toBe( valeur )
+    expect(...).toEqual( valeur )
+    expect(...).toMatch( valeur ) ==> regex
+    expect(...).toContain( valeur )
+
+    // Number
+    expect(...).toBeGreaterThan( valeur )
+    expect(...).toBeGreaterThanOrEqual( valeur )
+    ...
+
+    // Boolean
+    expect(...).toBeTruthy( valeur )
+    expect(...).toBeFalsy( valeur )
+
+    // Array
+    expect(...).toContain( valeur )
+    ...
+
+    // Object
+    expect(...).toMatchObject({ id : 1})
+    expect(...).toHaveProperty("id")
+    expect(...).toHaveProperty("id", 1)
+
+})
+
+Code Driver Development => CDD
+    1. Code
+    2. Tests
+
+TDD => Test Driver Development
+    1. Tests
+    2. Code

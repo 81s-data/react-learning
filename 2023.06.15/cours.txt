@@ -1,0 +1,11 @@
+Tests: 
+
+Dans un fichier librairie.js, créer une fonction genererTitre(data)
+
+Cette fonction retourne l'élément
+
+<h1>article publié le 15/06/2023</h1>
+
+// vous devez réaliser les tests qui permettent de vérifier que si la fonction est exécutée aujourd'hui
+// elle renvoit <h1>article publié le 15/06/2023</h1>
+// si exécutée hier renvoie <h1>article publié le 14/06/2023</h1>
