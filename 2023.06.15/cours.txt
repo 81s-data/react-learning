@@ -9,3 +9,8 @@ Cette fonction retourne l'élément
 // vous devez réaliser les tests qui permettent de vérifier que si la fonction est exécutée aujourd'hui
 // elle renvoit <h1>article publié le 15/06/2023</h1>
 // si exécutée hier renvoie <h1>article publié le 14/06/2023</h1>
+
+Exerices :
+
+- Ecrire et tester la fonction FizzBuzz
+- Ecrire et tester une fonction getArticle(tab, id) qui retourne un objet {id: ..., title: ...}
