@@ -50,3 +50,8 @@ TDD => Test Driver Development
     1. Tests
     2. Code
 
+--------------- Unit Tests in React ---------------
+
+
+npx create-react-app [project name]
+npm i @babel/plugin-proposal-private-property-in-object

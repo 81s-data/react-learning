@@ -5,7 +5,8 @@ Une fois installé, il existe 4 manières d'installer React :
 => npm i -g create-react-app
 => create-react-app projet
 
-=> npx create-react-app projet
+=> npx create-react-app projet avec les tests unitaires
+Ensuite exécuter npm i @babel/plugin-proposal-private-property-in-object
 
 => parcel / webpack (a voir)
 
